@@ -63,3 +63,4 @@ $RECYCLE.BIN/
 *.lnk
 
 /node_modules/
+resources/static/backmovie.mp4
