@@ -1,16 +1,17 @@
-<div full-page options="option">
-	<div class="section">
-		<div class="slide">
-			asd
-		</div>
-		<div class="slide">
-			<current-game></current-game>
-		</div>
+<search-nav></search-nav>
+
+<div class="section" ng-switch on="layout.section[layout.index]">
+	<div class="ngFade" ng-switch-when="1">
+		<summoner-data ng-show="!search.loading"></summoner-data>
 	</div>
-	<div class="section">
-		test
+	<div class="ngFade" ng-switch-when="2">
+		<board></board>
 	</div>
-	<div class="section">
-		test
+	<div class="ngFade" ng-switch-when="3">
+		<current-game></current-game>
+
+	</div>
+	<div class="ngFade" ng-switch-when="4">
+		4
 	</div>
 </div>

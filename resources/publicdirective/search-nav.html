@@ -1,0 +1,58 @@
+
+<nav class="main-nav">
+   <div class="nav-wrapper">
+     <a href="#" class="brand-logo">&nbsp;&nbsp;Troll.GG</a>
+     <a href="#" data-activates="side-out" class="button-collapse" data-sidenav="left" data-menuwidth="200" data-closeonclick="false" 
+     data-draggable="true" ><i class="material-icons">menu</i></a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down logo-nav-ul">
+       <li class="row">
+     <div class="logo-search-field col s12">
+		    <input  type="search" class='col s10 logo-search-input'  required placeholder="소환사명 검색" ng-model='summonerName' 
+         ng-keypress="keysearch($event,summonerName)"> 
+				<label for="search" class="search-label"><i class="material-icons" ng-click="search(summonerName)">search</i></label>
+		</div>
+		</li>
+      <li ng-if="dropdownLayout" class='dropdown-button' data-activates='demoDropdown' dropdown data-hover="true">
+        <span>유저 메뉴</span>
+      </li>
+      <li><a ng-click="goStatic()">롤 백과사전</a></li>
+      <li class="checkicon"><index-musicicon></index-musicicon></li>
+      <li class="checkicon"><index-videoicon></index-videoicon></li>
+
+     </ul>
+    </div>
+
+ </nav>
+  
+
+ <!-- Dropdown Structure -->
+<ul id='demoDropdown' class='dropdown-content'>
+  <li><a ng-click="viewChange('0')">최근게임</a></li>
+  <li><a ng-click="viewChange('1');">게시판</a></li>
+  <li><a ng-click="viewChange('2');">인게임</a></li>
+</ul>
+
+
+<ul id="side-out" class="side-nav search-side-nav">
+  <li>
+    <div class="userView summonerdata center-align row">
+      <div class="col s12 padding-hide">
+        <div class="col s6 padding-hide">
+          <img class="nav-profileicon padding-hide" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.22.1/img/profileicon/{{summonerdata.profileIconId}}.png">
+        </div>
+        <div class="col s6 padding-hide"><img class="tierimg padding-hide" ng-srcset="/resources/tier_icons/{{tierurl}}_{{divisionurl}}.png" err-src></div>
+      </div>
+
+      <div class="col s12">
+        <div class="col s12 profile-data padding-hide">랭크</div>
+      </div>
+    </div>
+    
+  </li>
+  <li><a href=""><i class="material-icons">cloud</i>First Link With Icon</a></li>
+  <li><a href="">Second Link</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Subheader</a></li>
+  <li><a class="waves-effect" href="">Third Link With Waves</a></li>
+</ul>
+

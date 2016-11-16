@@ -1,0 +1,74 @@
+
+
+<div class="container" ng-switch on="layout.view">
+	<div class="ngFade" ng-switch-when="create">
+		<!-- 게시판 추가화면 -->
+		<board-create></board-create>
+	</div>
+	<div class="ngFade" ng-switch-when="detail">
+		<!-- 상세정보뷰 -->
+		<board-detail board="{{detail}}"></board-detail>
+	</div>
+	<!-- 업데이트 수정뷰 -->
+	<div class="ngFade" ng-switch-when="update">
+		<board-update></board-update>
+	</div>
+	<!-- 게시판 -->
+	<div class="ngFade" ng-switch-default>
+		<div class="row" style="background-color: rgba(0,0,0,0.9);">
+
+			<div class="row">
+				<div class="col s12 white-text">
+					<table class="bordered centered">
+						<tr>
+							<th class="center" width="10%">종류</th>
+							<th class="center" width="50%">제목</th>
+							<th class="center" width="10%">작성자</th>
+							<th class="center" width="15%">작성날짜</th>
+							<th class="center" width="15%">IP</th>
+						</tr>
+						<tr ng-repeat="list in boardData.board_list" ng-click="selectBoard(list)">
+							<td>{{list.board_category}}</td>
+							<td>{{list.board_subject}}</td>
+							<td>{{list.board_writer}}</td>
+							<td>{{list.board_wdate}}</td>
+							<td>{{list.board_ip}}</td>
+						</tr>
+					</table>
+
+				</div>
+				<div class="col s4 center">
+					<div input-field class="col s12 white-text">
+						<select name="category" ng-change="categoryChange(selectVal)" ng-model="selectVal.board_category" material-select watch required>
+							<option value="all" selected>트롤종류를 선택하십시오</option>
+							<option ng-repeat="text in category" value="{{text}}">{{text}}</option>
+						</select>
+					</div>		
+				</div>
+				<div class="col s4 center white-text">
+					<select name="category" ng-model="selectVal.search_category" material-select watch required>
+						<option value="board_subject" selected>제목</option>
+						<option value="board_writer">작성자</option>
+					</select>
+				</div>
+				<div class="col s4 center">
+					<div input-field class="white-text">
+						<input type="text" ng-model="selectVal.search_value">
+						<label>검색값</label>
+					</div>
+				</div>
+				<div class="col s12 center">
+					<paging page="selectVal.page" 
+					size="boardData.board_count" 
+					pagesize="7" 
+					pagelength="5"
+					pageclick="selectPage(page)"
+					></paging>
+					<button class="btn" ng-click="layout.view='create'">글쓰기</button>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

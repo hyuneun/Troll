@@ -1,5 +1,5 @@
 <div class="row">
-  <form ng-init="category='name'">
+  <form class="white-text" ng-init="category='name'">
       <input name="group1" type="radio" id="test1" checked="true"  ng-click="category='name';itemfilter['plaintext']=''"/>
       <label for="test1">name</label>
       <input name="group1" type="radio" id="test3" ng-click="category='plaintext'
@@ -7,7 +7,10 @@
       <label for="test3">plaintext</label>
       <input type="checkbox" id="test5" ng-model="reverse"/>
       <label for="test5">reverse</label>
-      <input type="text" ng-model="itemfilter[category]">
+      <div class="input-field">
+        <input id="searchval" type="text" ng-model="itemfilter[category]">
+        <label for="searchval">search</label>
+      </div>
   </form>
 	<div class="col s6 m2" 
   ng-repeat="item in itemData.itemlist.data |orderObjectBy:category:reverse|filter:itemfilter"

@@ -1,0 +1,38 @@
+@media (max-width: 1100px) {
+.sname{
+	font-size: 1px;
+}
+.sname2{
+	font-size: 1px;
+}
+}
+
+
+
+
+/*.container.currentGame{
+		
+		background-image: url("/resources/page/search/currentgame/images/Background2.png");
+		background-size: 100%;
+		padding-top: 1%;
+}*/
+
+.sname{
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+	color: white;
+	/*color: #489CFF;
+	border-color: #489CFF;FF7E7E
+	border-width: 1px;
+	border-style: solid;
+	background-color: black;*/
+}
+.sname2{
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+	color: white;
+	/*color: #FF7E7E;
+	background-color: #A6A6A6;
+}*/
