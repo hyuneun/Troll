@@ -1,9 +1,51 @@
-<div full-page options="option">
-	<div class="section">	
-		<video loop muted id="myVideo">
-			<source src="/resources/static/backmovie.mp4" type="video/mp4">
-		</video>
-		<div class="videoCover">
-		</div>
+<div class="row">
+	<div class="col s8 l3 push-s2 push-l1 logoimg">
+		<img class="responsive-img" ng-srcset="/resources/static/logo.png">
 	</div>
 </div>
+<div class="row">
+	<div class="col s12 m8 push-m2 l3 push-l1 search-nav">
+		<div class="card blue-grey darken-3">
+			<!-- search form 영역 -->
+			<div class="card-content">
+				<div class="center" ng-if="searchLayout.loading">
+					<loading>
+					</loading>
+				</div>
+				<form name="searchform" novalidate  ng-hide="searchLayout.loading">
+					<div class="input-field search-input">
+						<input id="search" type="text" placeholder="소환사명을 입력하시오" required class="validate" ng-model="summonerName">
+					</div>
+					<button class='btn' ng-disabled="searchform.$invalid" ng-click="search(summonerName)">검색</button>
+					<div class="row">
+						<h5 class="white-text">검색한 소환사</h5>
+						<div class="col s10 push-s1">
+							<div class="chip" ng-repeat="list in searchList">
+								<span ng-click="cookieClick(list)">{{list}}</span>
+								<i class="close material-icons" ng-click="cookieDelete(list)">close</i>
+							</div>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<!--비디오 on off, music on off button -->
+			<div class="card-action">
+				<input type="checkbox" ng-model="mute" class="filled-in" id="filled-in-box1" ng-click="videoOn?mute:mute=false"/>
+				<label for="filled-in-box1" class="{{videoOn?'white-text':'grey-text'}}">music {{mute?'on':'off'}}</label>
+				<input type="checkbox" ng-model="videoOn" class="filled-in" checked="checked" id="filled-in-box2" />
+				<label for="filled-in-box2" class="white-text">video {{videoOn?'on':'off'}}</label>
+			</div>
+		</div>
+	</div>   
+</div>
+
+<!-- 비디오 영역 -->
+<div ng-if="videoOn">	
+	<video autoplay loop id="myVideo">
+		<source src="/resources/static/backmovie.mp4" type="video/mp4">
+	</video>
+</div>
+
+
+

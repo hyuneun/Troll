@@ -1,0 +1,43 @@
+<!-- <div ng-repeat="item in banChampionName">
+	<img src="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/{{item}}.png">
+</div> -->
+<br>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s2" ng-repeat="item in data.championKey1">
+
+      <div class="col s12">
+     	<img class="responsive-img" ng-srcset="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{item}}_0.jpg">
+      </div>
+
+      {{data.summonerName_list1[$index]}}
+
+      <div class="col s3">
+      <img class="responsive-img" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/profileicon/{{data.icon_list1[$index]}}.png">
+      </div>
+
+      <div class="col s3">
+      <img class="responsive-img" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/spell/{{data.summonerSpell1[$index]}}.png">
+      </div>
+
+      <div class="col s3">
+      <img class="responsive-img" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/spell/{{data.summonerSpell2[$index]}}.png">
+      </div>
+
+      <div class="col s3">
+      <img class="responsive-img" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/mastery/{{data.mastery1[[$index]]}}.png">
+      </div>
+        
+    </div>
+    <div class="col s1"></div>
+</div>
+
+<!-- <div class="row">
+    <div class="col s1"></div>
+    <div class="col s2" ng-repeat="item in data.championKey2">
+      	<img ng-srcset="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{item}}_0.jpg">
+      	<img ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/spell/{{data.summonerSpell3[$index]}}.png">
+      	<img ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/spell/{{data.summonerSpell4[$index]}}.png">
+    </div>
+    <div class="col s1"></div>
+</div> -->

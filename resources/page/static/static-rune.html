@@ -1,0 +1,28 @@
+<div class="row">
+  <form ng-init="category='name'">
+    <input name="group1" type="radio" id="test1" checked="true"  ng-click="category='name';runefilter['sanitizedDescription']=''"/>
+    <label for="test1">name</label>
+    <input name="group1" type="radio" id="test3" ng-click="category='sanitizedDescription';runefilter['name']=''"/>
+    <label for="test3">sanitizedDescription</label>
+    <input type="checkbox" id="test5" ng-model="reverse"/>
+    <label for="test5">reverse</label>
+    <input type="text" ng-model="runefilter[category]">
+  </form>
+  <div class="col s6 m2" 
+  ng-repeat="rune in runeData.runelist.data
+  |orderObjectBy:category:reverse|filter:runefilter">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/rune/{{rune.image.full}}" >
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4 truncate">{{::rune.name}}</span>
+      <p class="truncate">{{::rune.sanitizedDescription}}</p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{::rune.name}}<i class="material-icons right">close</i></span>
+      <p>{{::rune.sanitizedDescription}}</p>
+    </div>
+  </div>
+</div>
+</div>

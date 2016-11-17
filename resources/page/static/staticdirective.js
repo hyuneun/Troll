@@ -8,9 +8,10 @@ myApp.directive('staticNav',function(StaticLocaleResource,staticLocaleData,stati
 				staticLocaleData.set(data);
 				$scope.data=staticLocaleData.get();
 				$scope.$emit("categoryChangeSuccess",{});
-
+				console.log(data);
 			},function(error){
 				$scope.$emit("categoryChangeError",error);
+				
 			});
 			StaticLocaleResource.get({locale:"ko_KR",category:"champion"}).$promise.then(function(data){
 				staticData.set(data);
@@ -32,7 +33,7 @@ myApp.directive('staticNav',function(StaticLocaleResource,staticLocaleData,stati
 						category:staticData.selected()
 					}).$promise.then(function(data){
 						staticData.set(data);
-						console.log(data);
+						/*console.log(data);*/
 						$scope.$emit("mainChangeSuccess",staticData.selected());
 					},function(error){
 						$scope.$emit("mainChangeError",error);
@@ -40,6 +41,7 @@ myApp.directive('staticNav',function(StaticLocaleResource,staticLocaleData,stati
 				},function(error){
 					$scope.$emit("categoryChangeError",error);
 					$scope.$emit("mainChangeError",{});
+
 				});
 
 			}
@@ -64,6 +66,7 @@ myApp.directive('staticCategory',function(StaticLocaleResource,staticLocaleData,
 					staticData.set(data);
 					staticData.select(view);
 					console.log(data);
+					/*console.log($scope.data);*/
 					$scope.$emit("mainChangeSuccess",view);
 				},function(error){
 					$scope.$emit("mainChangeError",error);
@@ -151,11 +154,59 @@ myApp.directive('staticItem', function(staticLocaleData,staticData,staticDetail)
 		scope: {}, // {} = isolate, true = child, false/undefined = no change
 		controller: function($scope, $element, $attrs, $transclude) {
 			$scope.itemData=staticData.get();
+			$scope.localeData=staticLocaleData.get();
+
 		},
 		restrict: 'E', // E = Element, A = Attribute, C = Classit M = Comment
 		templateUrl: '/resources/page/static/static-item.html',
 		link: function($scope, iElm, iAttrs, controller) {
 			
+		}
+	};
+});
+myApp.directive('staticMastery', function(){
+	return {
+		scope: {}, // {} = isolate, true = child, false/undefined = no change
+		controller: function($scope, $element, $attrs, $transclude) {
+
+		},
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: '/resources/page/static/static-mastery.html',
+		link: function($scope, iElm, iAttrs, controller) {
+			
+		}
+	};
+});
+myApp.directive('staticRune', function(staticData){
+	return {
+		scope: {}, // {} = isolate, true = child, false/undefined = no change
+		controller: function($scope, $element, $attrs, $transclude) {
+			$scope.runeData=staticData.get();
+		},
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: '/resources/page/static/static-rune.html',
+		link: function($scope, iElm, iAttrs, controller) {
+			
+		}
+	};
+});
+myApp.directive('staticSummoner',function(staticData){
+	return {
+		scope: {}, // {} = isolate, true = child, false/undefined = no change
+		controller: function($scope, $element, $attrs, $transclude) {
+			
+			$scope.spellDataArray=[];
+			$scope.spellData=[];
+			for (var member in staticData.get().spell.data){
+				$scope.spellDataArray.push(member);
+			}
+			for(var i=0;i<$scope.spellDataArray.length;i++){
+				$scope.spellData.push(staticData.get().spell.data[$scope.spellDataArray[i]]);
+			}
+		},
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: '/resources/page/static/static-summoner.html',
+		link: function($scope, iElm, iAttrs, controller) {			
 		}
 	};
 });

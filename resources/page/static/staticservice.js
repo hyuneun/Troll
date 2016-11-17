@@ -15,7 +15,6 @@ myApp.factory('staticLocaleData', function(){
 		select:function(locale){
 			selectedLocale=locale;
 		}
-
 	};
 })
 myApp.factory('staticData', function(){
@@ -49,4 +48,10 @@ myApp.factory('staticDetail', function(){
 			angular.extend(selectData,data);
 		}
 	};
+});
+myApp.factory('StaticLocaleResource',function($resource,TrollRestUrl){
+	return $resource(TrollRestUrl+"static/locale/:locale/:category/:id",
+		{locale:"@locale",category:"@category",id:"@id"},{
+		get:{method:"GET",isArray:false}
+	});
 });

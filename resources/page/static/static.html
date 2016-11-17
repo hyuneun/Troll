@@ -4,7 +4,6 @@
 		<static-nav></static-nav>
 	</div>
 </div>
-
 <div class="container">
 	<div class="row center">
 		<!-- 카테고리 -->
@@ -12,7 +11,9 @@
 			<static-category></static-category>	
 		</div>
 		<div ng-if="category.error">
-			<error></error>
+			<error 
+			error-code="{{category.errorCode}}" 
+			error-message="{{category.errorMessage}}"></error>
 		</div>
 		
 	</div>
@@ -29,13 +30,14 @@
 			
 		</div>
 		<div class="ngFade" ng-switch-when="rune">
-			
+			<static-rune></static-rune>
 		</div>
 		<div class="ngFade" ng-switch-when="summoner">
-			
+			<static-summoner></static-summoner>
 		</div>
 		<div class="ngFade" ng-switch-when="error">
-			<error></error>
+			<error error-code="{{main.errorCode}}" 
+			error-message="{{main.errorMessage}}"></error>
 		</div>
 		<div ng-switch-when="loading">
 			<div class="row center">

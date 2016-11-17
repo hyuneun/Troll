@@ -1,70 +1,45 @@
 //공용디렉티브 혹은 메인페이지에 속하는 디렉티브모음
-myApp.directive('searchNav', function(){
-	// Runs during compile
-	return {
-		// name: '',
-		// priority: 1,
-		// terminal: true,
-		scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($scope, $element, $attrs, $transclude) {
-			$scope.summonerName = "";
-			$scope.search = function () {
-				if ($scope.summonerName == "" || $scope.summonerName == null) {
-					Materialize.toast('소환사의 아이디를 입력해주세요.', 4000)
-					return;
-				}
-				$location.path("/" + summonerName);
-			}
-		},
-		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
-		//template: '',
-		templateUrl: '/resources/publicdirective/search-nav.html',
-		// replace: true,asd
-		// transclude: true,
-		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, controller) {
-		}
-	};
-});
-
-myApp.directive('navBar',function($routeParams){
-	return {
-		scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($scope, $element, $attrs, $transclude) {
-			$scope.getNavClass=function(){
-				if(angular.isUndefined($routeParams.summonerName)){
-					return "ngNavIndex";
-				}else{
-					return "ngNavOther";
-				}
-			}
-		},
-		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
-		templateUrl: '/resources/publicdirective/nav-bar.html',
-		link: function($scope, iElm, iAttrs, controller) {
-			
-		}
-	};
-});
-myApp.directive('loading',function(){
+myApp.directive('loading',function(){ 
 	return {
 		scope: {}, // {} = isolate, true = child, false/undefined = no change
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 		templateUrl: '/resources/publicdirective/loading.html',
 		link: function($scope, iElm, iAttrs, controller) {
-			
 		}
 	};
 });
-myApp.directive('error',function(){
+myApp.directive('error',function($route){
 	// Runs during compile
 	return {
 		scope: {errorCode:"@errorCode",errorMessage:"@errorMessage"}, // {} = isolate, true = child, false/undefined = no change
-		controller: function($scope, $element, $attrs, $transclude) {},
+		controller: function($scope, $element, $attrs, $transclude) {
+			$scope.reload=function(){
+				$route.reload();
+			}
+		},
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
 		templateUrl: '/resources/publicdirective/error.html',
 		link: function($scope, iElm, iAttrs, controller) {
+		}
+	};
+});
+myApp.directive('backCover',function($routeParams,$location){
+	return {
+		scope: {}, // {} = isolate, true = child, false/undefined = no change
+		controller: function($scope, $element, $attrs, $transclude) {	
+			$scope.$on("$routeChangeSuccess",function(){
+				if(angular.isUndefined($routeParams.summonerName)&&!($location.path()=="/static/")){
+					$scope.params=true;
+	
+				}else{
+					$scope.params=false;
+				}
+			});
+		},
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: '/resources/publicdirective/back-cover.html',
+		link: function($scope, iElm, iAttrs, controller) {
+			
 		}
 	};
 });

@@ -4,11 +4,11 @@
 		<!-- 챔피언 설명 -->
 		<div class="row">
 			<div class="col s12 m3">
-			<img class="responsive-img" 
-			ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/{{champion.champion.image.full}}"
-	    	  style="width:{{champion.champion.image.w}};height:{{champion.champion.image.h}}">
-			 <h4>{{champion.champion.name}}</h4>
-	      	 <p>{{champion.champion.title}}</p>		
+				<img class="responsive-img" 
+				ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/{{champion.champion.image.full}}"
+				style="width:{{champion.champion.image.w}};height:{{champion.champion.image.h}}">
+				<h4>{{champion.champion.name}}</h4>
+				<p>{{champion.champion.title}}</p>		
 			</div>
 			<div class="col s12 m9">
 				<h5>{{locale.language.data.lore}}</h5>
@@ -24,7 +24,7 @@
 				<img class="responsive-img" 
 				ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/passive/{{champion.champion.passive.image.full}}" 
 				ng-click="spellClick(champion.champion.passive)">
-			
+				
 			</div>
 			<div class="col s2" ng-repeat="spell in champion.champion.spells">
 				<img class="responsive-img" 
@@ -38,30 +38,32 @@
 				</div>
 				<div class="col s2" ng-repeat="spell in champion.champion.spells"
 				ng-click="spellClick(spell)">
-					<span>{{spell.name}}</span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s12" ng-if="selected">
-					<h5>{{selectedSpell.name}}</h5>
-					<p>{{selectedSpell.description}}</p>
-				</div>
-			</div>
-			<div>
-				
+				<span>{{spell.name}}</span>
 			</div>
 		</div>
-
-
+		<div class="row">
+			<div class="col s12" ng-if="selected">
+				<h5>{{selectedSpell.name}}</h5>
+				<p>{{selectedSpell.description}}</p>
+			</div>
+		</div>
+		<div>
+			
+		</div>
 	</div>
+
+
+</div>
 
 	<!-- 로딩 -->
 	<div class="col s12 center">
 		<loading ng-if="layout.loading"></loading>
-    	<div ng-if="layout.loading">{{locale.language.data.mobilePleaseWait}}</div>
+		<div ng-if="layout.loading">{{locale.language.data.mobilePleaseWait}}</div>
 	</div>
-    <error ng-if="layout.error"></error>
+	<error ng-if="layout.error" 
+	error-code="layout.errorCode"
+	error-message="layout.errorMessage"></error>
 </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+<div class="modal-footer">
+	<button class="modal-action modal-close waves-effect waves-green btn-flat ">{{locale.language.data.back}}</button>
 </div>

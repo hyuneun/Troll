@@ -1,15 +1,26 @@
 <div class="row">
- <div class="col s6 m3" ng-repeat="champion in data.championlist.data">
+  <form ng-init="category='name'">
+      <input name="group1" type="radio" id="test1" checked="true"  
+      ng-click="category='name';champ['title']=''"/>
+      <label for="test1">name</label>
+      <input name="group1" type="radio" id="test3" 
+      ng-click="category='title';champ['name']=''"/>
+      <label for="test3">title</label>
+      <input type="checkbox" id="test5" ng-model="reverse"/>
+      <label for="test5">reverse</label>
+      <input type="text" ng-model="champ[category]">
+  </form>
+ <div class="col s6 m3" ng-repeat="champion in data.championlist.data|orderObjectBy:category:reverse|filter:champ">
    <div class="card" 
    data-target="championmodal" 
    ng-click="championDetail(champion.id)">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/{{champion.image.full}}" 
-      style="width:{{champion.image.w}};height:{{champion.image.h}}">
+      <img class="activator" ng-srcset="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/{{::champion.image.full}}" 
+      style="width:{{::champion.image.w}};height:{{::champion.image.h}}">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4 truncate">{{champion.name}}</span>
-      <p class="truncate">{{champion.title}}</p>
+      <span class="card-title activator grey-text text-darken-4 truncate">{{::champion.name}}</span>
+      <p class="truncate">{{::champion.title}}</p>
     </div>
   </div>
 </div>

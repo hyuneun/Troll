@@ -21,9 +21,9 @@
 <script src="/resources/static/angular-animate.js"></script>
 <script src="/resources/static/jquery.fullPage.js"></script>
 <script src="/resources/static/angular-fullpage.js"></script>
-
+<script src="/resources/static/angular-cookies.js"></script>
 <script>
-var myApp=angular.module("exampleApp",["ngRoute","fullPage.js","ngResource","ngAnimate"]);
+var myApp=angular.module("exampleApp",["ngRoute","fullPage.js","ngResource","ngAnimate","ngCookies"]);
 //config
 myApp.config(function($routeProvider,$locationProvider) {
 	$locationProvider.html5Mode({
@@ -45,12 +45,19 @@ myApp.config(function($routeProvider,$locationProvider) {
 		templateUrl:"/resources/page/search/search.html",
 		controller:"searchCtrl"
 	});
+	
 	$routeProvider.otherwise({
 		redirectTo:"/"
 	})
 });
-myApp.run(function($rootScope){
+myApp.run(function($rootScope,$window){
+	//첫로드가 전부 완료됐을시 페이지 보임
+	$rootScope.fullLoad=false;
+	$window.onload=function(){
+		$rootScope.fullLoad=true;
+		$rootScope.$apply();
 
+	}
 });
 
 </script>
@@ -61,10 +68,13 @@ myApp.run(function($rootScope){
 <!-- 검색페이지 컨트롤러 및 디렉티브 -->
 <script src="/resources/page/search/searchctrl.js"></script>
 <script src="/resources/page/search/searchdirective1.js"></script>
+<script src="/resources/page/search/currentGame/currentdirective.js"></script>
+
 <!-- staticData(롤백과)페이지 컨트롤러 및 디렉티브 -->
 <script src="/resources/page/static/staticctrl.js"></script>
 <script src="/resources/page/static/staticdirective.js"></script>
 <script src="/resources/page/static/staticservice.js"></script>
+<script src="/resources/page/search/currentGame/currentGameService.js"></script>
 <!-- 공용디렉티브 -->
 <script src="/resources/publicdirective/public-directive.js"></script>
 <!-- 필터 -->
@@ -74,12 +84,14 @@ myApp.run(function($rootScope){
 <script src="/resources/service/model-service.js"></script>
 </head>
 <body>
-<search-nav></search-nav>
-<!--페이지 영역-->
-<div ng-view>
+<!-- 처음 페이지 로딩시 로딩영역 -->
+<loading class="firstLoad" ng-if="!fullLoad"></loading>
+<!-- 인덱스페이지가 아니면 사라지는 동영상 투명도 커버 -->
+<back-cover ng-if="fullLoad"></back-cover>
+<img class="backImage" src="/resources/static/backimage.jpg">
+
+<div ng-if="fullLoad" ng-view class="ngFade">
 </div>
-<!-- <a href="/static/champion" class="btn">스태틱</a>
-<a href="/" class="btn">인덱스</a>
-<a href="/위대한수령님" class="btn">스태틱</a> -->
+
 </body>
 </html>

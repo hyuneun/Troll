@@ -1,12 +1,12 @@
 /*troll.gg css요소*/
 .ngNavIndex{
-		top:30%;
-		position: fixed;
+		/*top:30%;
+		position: fixed;*/
 		transition: all 0.5s;
 	}
 	.ngNavOther{
-		top:0%;
-		position: fixed;
+		/*top:0%;
+		position: fixed;*/
 		transition: all 0.5s;
 	}
 	
@@ -23,6 +23,11 @@
 	.ngGridSearch{
 		transition: all 0.5s
 	}
+	.section{
+		z-index:1;
+	}
+	
+
 	#myVideo{
 		position: absolute;
 		right: 0;
@@ -37,9 +42,9 @@
   		background-position: center center;
   		background-size: contain;
    		object-fit: cover; /*cover video background */
-   		z-index:3;
+   		z-index:1;
 	}
-	.videoCover{
+	.backCover{
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -48,10 +53,35 @@
 		width: 100%;
 		height: 100%;
 		background-size: 100% 100%;
- 		background-color: rgba(0,0,0,0.7); /* in case the video doesn't fit the whole page*/
+ 		background-color: rgba(0,0,0,0.5); /* in case the video doesn't fit the whole page*/
   		background-image: /* our video */;
   		background-position: center center;
   		background-size: contain;
    		object-fit: cover; /*cover video background */
-   		z-index:4;
+  		z-index:2;
+   		transition: all 0.5s;
 	}
+	.backImage{
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		top:0;
+		right:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: rgba(0,0,0,0.5); /* in case the video doesn't fit the whole page*/
+  		background-image: /* our video */;
+  		background-position: center center;
+  		background-size: contain;
+  		z-index: 0;
+	}
+	.backCover.ng-leave{
+		background-color: rgba(0,0,0,1);
+		transition: all 1s;
+	}
+	.backCover.ng-leave-active{
+		background-color: rgba(0,0,0,0);
+		transition: all 1s;
+	}
+
