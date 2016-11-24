@@ -1,0 +1,294 @@
+@import "font-awesome";
+div .summoner{
+	background-color: #607d8b;
+	font-size: 20px;
+	font-weight: 100;
+	color: white;
+}
+.icon_img{
+	margin:auto auto auto auto;
+	height: 100%;
+	width: 100%;
+}
+.tier_icon_img{
+	display: block;
+}
+.card-stacked .card-content .nickname {
+	margin-top: -15px;
+	margin-left: -10px;
+}
+.card-backcover{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	left: 0px;
+	float: left;
+	z-index: 0;
+	top: 0;
+}
+
+.card .statscard  {
+	font-weight: bold;
+	font-size: 1rem;
+	line-height: 150%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.Winstat{
+	color : rgba(179, 229, 252 ,1);
+}
+.Losestat{
+	color : rgba(255, 205, 210 ,1);
+}
+
+.Winchip{
+	background:rgba(0, 0, 0 ,0.8);
+	font-weight: bold;
+	color : rgba(179, 229, 252 ,1);
+}
+.Losechip{
+	background : rgba(0, 0, 0 ,0.8);
+	font-weight: bold;
+	color : rgba(255, 205, 210 ,1);
+}
+
+#sidenav-overlay{
+	display: none !important;
+}
+.recent{
+	margin-bottom: 1px;
+	line-height: 1.3;
+	width: 20%; 
+	text-align: center;
+}
+.victory{
+	font-size: 1rem;
+	font-weight: bold;	
+}
+.subtype {
+	text-align: right;
+	float: right;
+	font-size: .9em;
+	font-weight: bold;
+	color : rgba(70, 70, 70,0.5);
+}
+.gametime{
+	float: left;
+	text-align: center;
+	font-size: .8rem;
+	color : rgba(50, 50, 50,0.8);
+	font-weight: bold;
+}
+
+.my-chamimg{
+	margin-top: 8px;
+	width: 65px;
+	height: 65px;
+	border-radius: 100px;
+	border: 2px solid grey;
+}
+
+.myplayer-chamimg > img{
+	width: 31px;
+	height: 31px;
+	border-radius: 70px;
+}
+.player-chamimg > img{
+	width: 31px;
+	height: 31px;
+	border-radius: 70px;
+}
+.card .allplayers{
+	text-align: center;
+	margin-right: 100px;
+}
+.kda{
+	margin-left: -2px;
+}
+
+.kdared{
+	color : red;
+	font-weight: bold;
+}
+
+.kdablue{
+	color : blue;
+	font-weight: bold;
+}
+.Win{
+	background: rgba(187, 222, 251 , 0.8);
+	color:rgba(92, 107, 192, 1);
+}
+.Lose{
+	background: rgba(255, 205, 210 , 0.8);
+	color:rgba(236, 64, 122, 1);
+}
+.Wins{
+	color:rgba(92, 107, 192, 1);
+}
+.Loses{
+	color:rgba(236, 64, 122, 1);
+}
+
+.Win:before{
+	background: rgba(187, 222, 251 , 0.8);
+	color:rgba(92, 107, 192, 1);
+}
+.Lose:before{
+	background: rgba(255, 205, 210 , 0.8);
+	color:rgba(236, 64, 122, 1);
+}
+
+.item-slot{
+	padding: 0;
+	margin-left: 15px;
+}
+.padding-hide{
+	padding: 0 !important;
+}
+.padding-top-hide{
+	padding-top: 0 !important;
+}
+.padding-left-hide{
+	padding-left: 0 !important;
+}
+.padding-right-hide{
+	padding-right:0 !important;
+}
+.padding-bottom-hide{
+	padding-bottom:0 !important;
+}
+.item-slot .slot{
+	background: rgba(0,0,0, 0.5);
+	line-height: 0 !important;
+	text-align: center !important;
+	height: 40px;
+	font-size: 0;
+	display: table-cell;
+	padding: 1px 1px 1px 1px;
+	border-radius: 5px;
+}
+
+.item-slot .slot > img{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+
+
+.spell-slot{
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.spell-slot .slot{
+	background: rgba(0,0,0, 0.5);
+	/* line-height: 0 !important;
+	text-align: center !important; */
+	width: 25px !important;
+	height: 25px;
+	font-size: 0;
+	display: table-cell;
+	padding: 1px 1px 1px 1px;
+	border-radius: 5px;
+}
+.spell-slot .slot > img{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius:5px 0 0 5px;
+}
+
+.recent .card-btn{
+	cursor: pointer;
+	/* text-transform: uppercase; */
+	background: rgba(0, 0, 0,0.0);
+	color: #fff;
+	position: relative;
+	width: 100%;
+	border-radius: 7px 7px 0 0;
+	font-size: .9rem;
+}
+.statscard-btn:before{
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	position: absolute;
+	font-weight: bold;
+	height: 100%;
+	left: 0;
+	top: 0;
+	content: "Player Stat \f106";
+	font-family: FontAwesome;
+ 	width: 99%;
+    z-index: 2;
+  	padding-right: 1px;
+}
+
+.match-btn:before{
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	position: absolute;
+	font-weight: bold;
+	height: 100%;
+	left: 0;
+	top: 0;
+	content: "match up \f002";
+	font-family: FontAwesome;
+ 	width: 99%;
+    z-index: 2;
+}
+
+.card-btn:hover:before {
+    background:rgba(255, 255,255,.7);
+    /* color: black; */
+}
+
+/* 모바일 스마트폰 이하 */
+@media only screen and (max-width: 450px){
+	.summoner-chamimg > img{
+		width: 50px;
+		height: 50px;
+		border-radius: 100px;
+		font-size: 15px;
+	}
+	
+
+	.kda{
+		margin-left: -10px;
+	}
+	}
+	/* 모바일 스마트폰 아이폰 전용 */
+	@media only screen and (max-width: 320px){
+	
+	}
+
+	/* iPads (portrait and landscape) */
+	@media only screen
+	and (max-width : 1024px) {
+	
+	}
+	.vs{
+		padding: 0px 0px 0px 0px;
+		font-size: 1rem;
+		text-align: center;
+		font-weight: bold;
+	}
+	.blueteamborder{
+		border: 2px solid blue;
+	}
+	.redteamborder{
+		border: 2px solid red;
+	}
+	.mychampborder{
+		border: 2px solid yellow;
+	}
+
+
+	

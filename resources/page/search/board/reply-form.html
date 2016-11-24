@@ -1,0 +1,23 @@
+<div class="row">
+		<div class="col s12 white-text" style="background-color: rgba(0,0,0,0.9); border-radius: 5px">
+			<form name="replyform" novalidate>
+				<div class="col s6 input-field inline">
+					<input id="replywriter" name="writer" type="text" class="validate" required ng-model="createReply.reply_writer">
+					<label for="replywriter">작성자</label>
+				</div>
+				<div class="col s6 input-field inline">
+					<input id="replypassword" name="password" type="password" class="validate" required ng-model="createReply.reply_password">
+					<label for="replypassword">암호</label>
+				</div>
+				<div class="input-field col s12">
+					<textarea id="replycontent" name="content" required class="materialize-textarea" ng-model="createReply.reply_content"></textarea>
+					<label for="replycontent">내용</label>
+				</div>
+
+				<div class="row center">
+					<button class="btn" ng-click="create(createReply)" ng-disabled="replyform.$invalid">입력</button>
+				</div>
+			</form>
+			<input type="hidden" ng-model="createReply.board_num"/>
+		</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="card-content search-content">
+<form name="searchform" novalidate>
+	<div class="input-field search-input">
+		<input id="search" type="search" placeholder="소환사명 입력" required ng-model="summonerName">
+		<label for='search'><i class="material-icons">search</i></label>
+	</div>
+	<button class='my waves-light waves-effect' ng-disabled="searchform.$invalid" ng-click="search(summonerName)"></button>
+</form>
+</div>
+<div class="card-content search-cookie" ng-if="searchList.length != 0">
+	<div class="row">
+		<div class="col s10 push-s1">
+			<div class="chip cookiechip" ng-repeat="list in searchList">
+				<span ng-click="search(list)">{{list}}</span>
+				<i class="close material-icons" ng-click="cookieDelete(list)">close</i>
+			</div>
+		</div>
+	</div>
+</div>

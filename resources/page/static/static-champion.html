@@ -1,5 +1,5 @@
 <div class="row">
-  <form ng-init="category='name'">
+  <form class="white-text" ng-init="category='name'">
       <input name="group1" type="radio" id="test1" checked="true"  
       ng-click="category='name';champ['title']=''"/>
       <label for="test1">name</label>
@@ -8,8 +8,12 @@
       <label for="test3">title</label>
       <input type="checkbox" id="test5" ng-model="reverse"/>
       <label for="test5">reverse</label>
-      <input type="text" ng-model="champ[category]">
+      <div class="input-field">
+        <input id="searchval" type="text" ng-model="champ[category]">
+        <label for="searchval">search</label>
+      </div>
   </form>
+
  <div class="col s6 m3" ng-repeat="champion in data.championlist.data|orderObjectBy:category:reverse|filter:champ">
    <div class="card" 
    data-target="championmodal" 
@@ -27,5 +31,5 @@
 </div>
 
 <div id="championmodal" class="modal modal-fixed-footer">
-	<static-championmodal></static-championmodal>
+  <static-championmodal></static-championmodal>
 </div>

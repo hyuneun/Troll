@@ -1,6 +1,6 @@
 <div class="modal-content">
 	<!-- 모달메인 -->
-	<div ng-if="!layout.loading">
+	<div ng-if="!layout.loading" class="champion-modal">
 		<!-- 챔피언 설명 -->
 		<div class="row">
 			<div class="col s12 m3">
@@ -55,12 +55,12 @@
 
 </div>
 
-	<!-- 로딩 -->
-	<div class="col s12 center">
-		<loading ng-if="layout.loading"></loading>
-		<div ng-if="layout.loading">{{locale.language.data.mobilePleaseWait}}</div>
-	</div>
-	<error ng-if="layout.error" 
+<!-- 로딩 -->
+<div class="col s12 center">
+	<loading ng-if="layout.loading"></loading>
+	<div ng-if="layout.loading">{{locale.language.data.mobilePleaseWait}}</div>
+</div>
+<error ng-if="layout.error" 
 	error-code="layout.errorCode"
 	error-message="layout.errorMessage"></error>
 </div>

@@ -1,0 +1,17 @@
+<ul class="pagination">
+    <li 
+    ng-class="page==1?'disabled':'waves-effect'" 
+    ng-click="page!=1?pageclick({page:(page-1)}):''">
+    <a><i class="material-icons">chevron_left</i></a></li>
+    
+    <li 
+    ng-class="page==($index+1)?'active':'waves-effect'" 
+    ng-click="pageclick({page:$index+1})" 
+    ng-repeat="i in array">
+    <a>{{$index+1}}</a></li>
+   
+   <li 
+   ng-class="page==pageCount?'disabled':'waves-effect'"
+   ng-click="page!=pageCount?pageclick({page:(page+1)}):''">
+    <a><i class="material-icons">chevron_right</i></a></li>
+</ul>

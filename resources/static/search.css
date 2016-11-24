@@ -1,135 +1,261 @@
-     @import "font-awesome";
-   .searchlogo{
-      top:20%;
-   }
-   .logoimg{
-      z-index: 3;
-      position: relative;
-      top:20%;
-   }
-   .search-nav{
-      background:rgba(0,0,0,0.0);
-      z-index: 3;
-      position: relative;
-   }
-    .search-field  {
-       border-radius: 15px 0px 0px 15px;
-      transition: all 0.5s;
-   }
-   .search-field:hover {
-      background:rgba(0,0,0,0.4);
-   }
-   .search-nav .search-field > input{
-      border:none;
-      border-radius: 15px;
-      /* background-color: #000000; */
-   }
-   /*검색폼의 input필드 */
-   .input-field.search-input{
-   background-color: white;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem; 
-    padding: 0;
-    box-shadow: none;
-    box-sizing: content-box;
-    transition: all 0.3s;
-    margin-bottom: 15px;
-   }
-   .firstLoad{
-      top:45%;
-      left: 45%;
-      position: fixed;
-   }
+@import "font-awesome";
+/*검색폼의 input필드 */
+.firstLoad{
+  top:45%;
+  left: 45%;
+  position: fixed;
+}
+.searchlogo{
+  top:20%;
+}
+.logoimg{
+  z-index: 3;
+  position: relative;
+}
 
-   .my {
-      border: none;
-      cursor: pointer;
-      padding: 25px 80px;
-      margin-left: 30px;
-      text-transform: uppercase;
-      background: rgba(57, 73, 171, 0.8);
-      font-weight: 500;
-      outline: none;
-      position: relative;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
-   }
-   .my-3 {
-      background: rgba(57, 73, 171, 0.8);
-      color: #fff;
-   }
-   .my-3:hover {
-      background: rgba(40, 53, 147, 0.8);
-   }
-   .my-3:focus{
-      background: rgba(40, 53, 147, 0.8);
-   }
-   .my-3:active {
-      background: rgba(26, 35, 126,0.8);
-      top: 2px;
-   }
-   .my-3:before {
-      position: absolute;
-      height: 100%;
-      left: 0;
-      top: 0;
-      line-height: 3;
-      font-size: 140%;
-      width: 60px;
-   }
-   .my-3d {
-      /* padding: 25px 60px 25px 120px; */
-      border-radius: 5px 5px 5px 5px;
-   }
-   .my-3d:before {
-      content: "\f002";
-      font-family: FontAwesome;
-      background: #f9fbe7;
-      width: 20%;
-      color: rgba(57, 73, 171, 0.8);
-      z-index: 2;
-      border-radius: 5px 0 0 5px;
-   }
+.soundmovie {
+  margin-bottom: 0px;
+  text-align: center;
+}
+.search-card{
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-radius: 7px 7px 7px 7px;
+  background:rgba(3, 4,22,0.7);
+  box-shadow: 1px 1px 2px 1px rgba(0,0,0,.8)  , 0 1px 0 rgba(0,0,0,.5);
+  text-align: center;
+}
+.search-card .search-content{
+}
+.search-card .search-action{
+  background:rgba(0, 0, 0,0);
+  color:white;
+}
+.search-card .search-action i {
+  color:rgba(255, 255, 255,0.8); 
+}
+.search-card .search-cookie{
+  border-top: 1px solid rgba(245,245,245 , .3);
+}
+.search-card .search-action {
+  padding: 10px !important;
+}
+.search-card .search-action .sound{
+  cursor: pointer;
+  border-right: 2px solid white;
+}
+.checkicon{
+  width: 40px;
+  cursor: pointer;
+}
+.checkicon:hover{
+ background: rgba(0,0,0,0.1);
+}
+.search-card .search-action .video{
+  cursor: pointer;
+}
+.search-card .search-action .sound > i{
+ transition:all 0.5s ease-out;
+ color : rgba(255,255,255 , .5);
+}
+.search-card .search-action .video > i{
+ transition:all 0.5s ease-out;
+ color : rgba(255,255,255 , .5);
+}
 
-   .my-3d:active:before {
-      color: rgba(26, 35, 126,0.8);
-   }
-
-		/* nav .nav-wrapper  button{
-			border-radius: 10px;
-			width: 100%;
-			left:-10px;
-			box-shadow: 1px 1px 2px 1px rgba(0,0,0,.4) inset , 0 1px 0 rgba(0,0,0,.2);
-			background:rgba(26, 35, 126,0.4);
-			color : white;
-			height: 100%;
-			border : none;
-			background: rgba(26, 35, 126,0.5);
-			box-shadow: 1px 1px 0px 0px rgba(255,255,255,.3) inset , 0 1px 0 rgba(255,255,255,.5);
-			transition: all 150ms linear;
-		}
-		nav .nav-wrapper button:hover {
-		background: #1a237e;
-			background: rgba(26, 35, 126,0.9);
-			transition: all 250ms linear;
-		} */
+.search-card .search-action .video .on{
+  color : rgba(255,255,255 , 1);
+}
+.search-card .search-action .video .off{
+  color : rgba(255,255,255 , .5);
+}
+.search-card .search-action .sound .on{
+  color : rgba(255,255,255 , 1);
+}
+.search-card .search-action .sound .off{
+  color : rgba(255,255,255 , .5);
+}
+.search-card .search-action .sound:hover{
+  background: rgba(0,0,0, 0.3);
+}
+.search-card .search-action .video:hover{
+  background: rgba(0,0,0, 0.3)
+}
 
 
+.cookiechip{
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  font-weight: bold;
+  background: rgba(33, 150, 243, 1);
+  cursor: pointer;
+  color:rgba(255,255,255, 1);
+}
 
-/* Icon Float Away */
+.cookiechip:hover{
+ color: rgba(33, 150, 243 , 1);
+ background: rgba(255,255,255,1);
+}
+
+.search-nav{
+  z-index:3;
+  position: relative;
+  border:none;
+}
+.input-field.search-input{
+  background: rgba(0,0,0,0.3);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem; 
+  padding: 0;
+  box-shadow: 1px 1px 2px 1px rgba(232, 245, 233,.8) inset ,0px 0px 1px 0px rgba(232, 245, 233,.5);
+  transition: all 0.3s;
+  margin-bottom: 15px;
+}
+.search-input > label[class='active']{
+  -webkit-transform :none;
+  transform : none;
+}
+.search-input > label > i{
+  transition:all 0.2s ease-out;
+  color: rgba(241, 241, 241 , 0.5);
+}  
+.search-input > input[type="search"]{
+  border:none;
+  border-radius: 15px;
+  color: white;
+}
+
+.search-input > input[type="search"]:focus{
+  margin-left: -3px;
+  border-radius: 15px 5px 5px 15px;
+  background:rgba(245,245,245,.0);
+  color: white;
+}
+.search-input input[type=search]:focus:not([readonly])+label > i{
+ transition:all 0.2s ease-out;
+ color : #fff;
+ margin-left: -3px;
+}
+
+.main-nav{
+  background-color: rgba(0,0,0,.5);
+  border: none;
+  box-shadow: none;
+  z-index: 4;
+  margin-bottom: 0;
+}
+.logo-search-field {
+  margin: 13px auto 0px auto;
+  height: 40px;
+  background-color: white;
+  border-radius: 7px;
+}
+.logo-search-field .logo-search-input{
+  margin-top:-2px;
+  border: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  background: rgba(0,0,0,0);
+  outline: none;
+  color:black;
+}
+.logo-search-field .logo-search-input::-webkit-input-placeholder{
+ color: #546e7a;
+}
+.search-label {
+  text-align: center;
+}
+.logo-search-field .search-label > i {
+  color: #546e7a;
+  margin-top: -10px;
+  cursor: pointer;
+  font-weight: 500px;
+  font-size: 25px;
+}
+.logo-search-field .logo-search-input[type=search]:focus{
+  border: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+
+::-webkit-input-placeholder {
+ color: rgba(241, 241, 241 , 0.5);
+ } /* 플레이스 홀더 색깔변경 */
+
+ :-moz-placeholder { Firefox 18-
+   color: rgba(241, 241, 241 , 0.5);
+ }
+
+ ::-moz-placeholder {  Firefox 19+
+   color: rgba(241, 241, 241 , 0.5);
+ }
+
+ :-ms-input-placeholder {
+   color: rgba(241, 241, 241 , 0.5);
+ }   
 
 
 
-	/* 	@keyframes slidein {
-		from {
-			margin-left: 0%;
-		}
-		to {
-			margin-left: -50%;
-		}
-	} */
+ .my {
+  content: '검색';
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: rgba(50, 126, 150, 0.5);
+  outline: none;  
+  position: relative;
+  z-index: 4;
+  height: 35px;
+  width: 35%;
+}
+.my[disabled='disabled'] {
+  background: rgba(0,0,0,0);
+}
+.my[disabled='disabled']:before {
+  color : rgba(230,230,230, 0.5);
+}
+.my:focus{
+  background: rgba(38, 50, 56, 0.5);
+}
+.my:hover {
+ background: rgba(50, 126, 150, .9);
+} 
+.my:active {
+  top: 2px;
+}
+.my:before {
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  line-height: 2.3;
+  content: "\f002     검색";
+  font-family: FontAwesome;
+  background: rgba(245, 245,245, 0);
+  color: rgba(255, 255,255, 1);
+  border-radius: 5px 0 0 5px;
+}
+.my {
+ /*  padding: 25px 60px 25px 120px; */
+ border-radius: 10px 10px 10px 10px;
+}
+@media only screen and (max-width: 992px){
+  .my:before {
+    content: "\f002";
+  }
+}
+.my:active:before {
+  color: rgba(0, 0, 0,0.8);
+}

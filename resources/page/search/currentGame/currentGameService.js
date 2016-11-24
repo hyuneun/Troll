@@ -9,4 +9,5 @@ myApp.factory('currentGameData', function(){
 			angular.extend(localeData,data);
 		}
 	};
-})
+});
+

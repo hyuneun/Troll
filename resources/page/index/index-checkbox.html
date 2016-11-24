@@ -1,0 +1,11 @@
+<div class="row soundmovie">
+
+<div class="col s6 sound" ng-click="music.on? musicoff():musicon()" tooltipped data-position="bottom" data-delay="100" data-tooltip="Click Sound On/off">
+<span class="volume"><i class="fa {{music.on?'fa-volume-up':'fa-volume-off'}} fa-2x {{music.on? 'on' : 'off'}}" aria-hidden="true"></i></span>
+</div>
+
+
+<div class="col s6 video" ng-click="video.on? videoshow():videostop()" tooltipped data-position="bottom" data-delay="100" data-tooltip="Click Movie On/off">
+<span><i class="fa {{video.on?'fa-pause-circle':'fa-play-circle'}} fa-2x {{video.on? 'on' : 'off'}}" aria-hidden="true"></i></span>
+</div>
+</div>

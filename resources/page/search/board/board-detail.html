@@ -1,0 +1,89 @@
+<div class="container">
+	<div class="row">
+		<div class="col s12 black-text" style="background-color: rgba(255,255,255,0.9); border-radius: 5px">
+			<form name="detailform" novalidate>
+				<div class="col s12" ng-if="!confirmPassword">
+					{{data.board_detail.board_category}}
+				</div>
+				<div ng-if="confirmPassword" input-field class="col s12 ngFade">
+					<select name="category" ng-model="data.board_detail.board_category" material-select watch required class="black-text">
+						<option ng-repeat="text in category" value="{{text}}">{{text}}</option>
+					</select>
+				</div>
+				<div class="col s6 input-field inline detail">
+					<input id="boardwriter" name="writer" type="text" ng-model="data.board_detail.board_writer" ng-readonly="!layout">
+					<label for="boardwriter">작성자</label>
+				</div>
+				<div class="col s6 detail" ng-if="layout">
+					암호가 일치합니다. 수정하실수 있습니다.
+				</div>
+				<div class="col s6 detail" ng-if="error">
+					암호가 일치하지 않습니다.
+				</div>
+				<div class="col s12 input-field inline detail">
+					<input id="boardsubject" name="subject" type="text" required ng-model="data.board_detail.board_subject" ng-readonly="!layout">
+					<label for="boardsubject" >제목</label>
+				</div>
+				<div class="input-field col s12">
+					<textarea id="boardcontent" name="content" required class="materialize-textarea" ng-model="data.board_detail.board_content" ng-readonly="!layout"></textarea>
+					<label for="boardcontent">내용</label>
+				</div>
+				<div class="row center">
+					<div class="col s12">
+						<button class="btn" ng-disabled="delete" 
+						ng-click="modifyClick()">{{modify?'수정취소':'수정'}}</button>
+						<button class="btn" 
+						ng-click="deleteClick()" ng-disabled="modify">{{delete?'삭제취소':'삭제'}}</button>
+						<button class="btn"
+						ng-click="reply?reply=false:reply=true">{{reply?'댓글취소':'댓글입력'}}</button>
+						<button class="btn" ng-click="back()">되돌아가기</button>
+					</div>
+					<!-- 암호확인 뷰 -->
+					<div class="col s12 center enter leave" ng-if="passwordlayout">
+						<div class="input-field col s12 center">
+						<input id="boardpassword" name="password" required type="password" ng-model="data.board_detail.board_password" ng-readonly="confirmPassword">
+							<label for="boardpassword">암호</label>
+						</div>
+						<button class="btn" ng-disabled="detailform.password.$invalid" ng-click="passwordConfirm(data.board_detail.board_password)">
+						{{modify?(confirmPassword?'수정확인':'암호확인'):'삭제'}}</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row reply" ng-init="reply=false"  ng-if="reply">
+		<reply-form boardnum="data.board_detail.board_num"></reply-form>
+	</div>
+	<div class="row">
+		<div class="col ngFade" 
+		ng-class="replydata.reply_gnum.split('-').length==1?'s12':'s11 push-s1'" ng-repeat="replydata in data.reply_list">
+			<div ng-init="replydata[$index]=false" class="card blue-grey darken-1">
+				<div class="card-content white-text">
+					<span class="card-title">{{replydata.reply_writer}}</span>
+					<p>{{replydata.reply_content}}</p>
+				</div>
+				<div class="card-action">
+					<a 
+					ng-if="replydata.reply_gnum.split('-').length==1"
+					ng-click="replydata[$index]?replydata[$index]=false:replydata[$index]=true">
+					{{replydata[$index]?'취소':'댓글추가'}}
+					</a>
+					<a
+					ng-click="replyPasswordLayout?replyPasswordLayout=false:replyPasswordLayout=true">
+						댓글삭제
+					</a>
+				</div>
+				<div class="row" ng-init="replyPasswordLayout=false" ng-if="replyPasswordLayout">
+					<div class="input-field col s12 center">
+						<input id="replypassword" name="password" required type="password" ng-model="replydata.reply_password">
+							<label for="replypassword">암호</label>
+							<button class="btn" ng-click="replydelete(replydata)">삭제</button>
+					</div>
+				</div>
+			</div>
+			<div class="reply" ng-if="replydata[$index]">
+				<reply-form boardnum="data.board_detail.board_num" selectgnum="replydata.reply_gnum"></reply-form>
+			</div>
+		</div>
+	</div>
+</div>
