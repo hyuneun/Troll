@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col s8 l3 push-s2 push-l1 logoimg">
+		<img class="responsive-img" ng-srcset="/resources/static/logo.png">
+	</div>
+</div>
+<div class="row">
+	<div class="col s12 m8 push-m2 l3 push-l1 search-nav">
+		<div class="card search-card">
+			<!-- search form 영역 -->
+			
+			<!--비디오 on off, music on off button -->
+
+			<div class="card-content search-action" ng-hide="searchLayout.loading">
+				<div class="row">
+					<div class="col s6"><index-musicicon></index-musicicon></div>
+					<div class="col s6"><index-videoicon></index-videoicon></div>
+				</div>
+			</div>
+			<index-searchform ng-hide="searchLayout.loading"></index-searchform>
+		</div>
+	</div>   
+</div>
+
+
+
+
+
